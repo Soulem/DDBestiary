@@ -2,4 +2,15 @@
     <string name="app_name">D&amp;D Bestiary</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="charisma_label">CHA</string>
+    <string name="wisdom_label">WIS</string>
+    <string name="intelligence_label">INT</string>
+    <string name="constitution_label">CON</string>
+    <string name="dexterity_label">DEX</string>
+    <string name="strength_label">STR</string>
+    <string name="monster_name">Name:  </string>
+    <string name="monster_type">Type:  </string>
+    <string name="monster_subtype">Subtype:  </string>
+    <string name="health_label">HP:  </string>
+    <string name="armor_class_label">AC:  </string>
 </resources>

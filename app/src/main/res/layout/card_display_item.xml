@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".view.card.CardDisplayItem">
+
+
+
+    <!-- <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/item_guideline"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.75"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/item_imageView" />-->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/monster_profile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        >
+
+        <FrameLayout
+            android:id="@+id/ability_score_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/item_imageView"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <ImageView
+            android:id="@+id/item_imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@tools:sample/avatars"
+            />
+
+        <TextView
+            style="AbilityScoreLabelStyle"
+            android:id="@+id/strength_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="STR"
+            app:layout_constraintBottom_toTopOf="@id/strength_value"
+            app:layout_constraintEnd_toEndOf="@id/strength_value"
+            app:layout_constraintStart_toStartOf="@id/strength_value"
+            app:layout_constraintTop_toTopOf="@id/ability_score_layout"/>
+
+        <TextView
+            style="AbilityScoreLabelStyle"
+            android:id="@+id/dexterity_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DEX"
+            app:layout_constraintBottom_toTopOf="@id/dexterity_value"
+            app:layout_constraintEnd_toEndOf="@id/dexterity_value"
+            app:layout_constraintStart_toStartOf="@id/dexterity_value"
+            app:layout_constraintTop_toTopOf="@id/ability_score_layout"/>
+        <TextView
+            style="AbilityScoreLabelStyle"
+            android:id="@+id/constitution_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CON"
+            app:layout_constraintBottom_toTopOf="@id/constitution_value"
+            app:layout_constraintEnd_toEndOf="@id/constitution_value"
+            app:layout_constraintStart_toStartOf="@id/constitution_value"
+            app:layout_constraintTop_toTopOf="@id/ability_score_layout"/>
+        <TextView
+            style="AbilityScoreLabelStyle"
+            android:id="@+id/intelligence_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="INT"
+            app:layout_constraintBottom_toTopOf="@id/intelligence_value"
+            app:layout_constraintEnd_toEndOf="@id/intelligence_value"
+            app:layout_constraintStart_toStartOf="@id/intelligence_value"
+            app:layout_constraintTop_toTopOf="@id/ability_score_layout"/>
+        <TextView
+            style="AbilityScoreLabelStyle"
+            android:id="@+id/wisdom_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="WID"
+            app:layout_constraintBottom_toTopOf="@id/wisdom_value"
+            app:layout_constraintEnd_toEndOf="@id/wisdom_value"
+            app:layout_constraintStart_toStartOf="@id/wisdom_value"
+            app:layout_constraintTop_toTopOf="@id/ability_score_layout"/>
+        <TextView
+            style="AbilityScoreLabelStyle"
+            android:id="@+id/charisma_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CHA"
+            app:layout_constraintBottom_toTopOf="@id/charisma_value"
+            app:layout_constraintEnd_toEndOf="@id/charisma_value"
+            app:layout_constraintStart_toStartOf="@id/charisma_value"
+            app:layout_constraintTop_toTopOf="@id/ability_score_layout"/>
+
+        <EditText
+            style="@style/AbilityScoreTextStyle"
+            android:id="@+id/strength_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/ability_score_layout"
+            app:layout_constraintEnd_toStartOf="@id/dexterity_value"
+            app:layout_constraintStart_toStartOf="@id/ability_score_layout"
+            app:layout_constraintTop_toBottomOf="@id/strength_label" />
+
+    <EditText
+        style="@style/AbilityScoreTextStyle"
+        android:id="@+id/dexterity_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:inputType="number"
+        app:layout_constraintStart_toEndOf="@id/strength_value"
+        app:layout_constraintBottom_toBottomOf="@id/ability_score_layout"
+        app:layout_constraintTop_toBottomOf="@id/dexterity_label"
+        app:layout_constraintEnd_toStartOf="@id/constitution_value"
+        />
+
+    <EditText
+        style="@style/AbilityScoreTextStyle"
+        android:id="@+id/constitution_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:inputType="number"
+        app:layout_constraintStart_toEndOf="@id/dexterity_value"
+        app:layout_constraintBottom_toBottomOf="@id/ability_score_layout"
+        app:layout_constraintTop_toBottomOf="@id/constitution_label"
+        app:layout_constraintEnd_toStartOf="@id/intelligence_value"/>
+
+    <EditText
+        style="@style/AbilityScoreTextStyle"
+        android:id="@+id/intelligence_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:inputType="number"
+        app:layout_constraintStart_toEndOf="@id/constitution_value"
+        app:layout_constraintBottom_toBottomOf="@id/ability_score_layout"
+        app:layout_constraintTop_toBottomOf="@id/intelligence_label"
+        app:layout_constraintEnd_toStartOf="@id/wisdom_value"/>
+
+    <EditText
+        style="@style/AbilityScoreTextStyle"
+        android:id="@+id/wisdom_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:inputType="number"
+        app:layout_constraintStart_toEndOf="@id/intelligence_value"
+        app:layout_constraintBottom_toBottomOf="@id/ability_score_layout"
+        app:layout_constraintTop_toBottomOf="@id/wisdom_label"
+        app:layout_constraintEnd_toStartOf="@id/charisma_value"/>
+
+    <EditText
+        style="@style/AbilityScoreTextStyle"
+        android:id="@+id/charisma_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:inputType="number"
+        app:layout_constraintBottom_toBottomOf="@id/ability_score_layout"
+        app:layout_constraintEnd_toEndOf="@id/ability_score_layout"
+        app:layout_constraintStart_toEndOf="@id/wisdom_value"
+        app:layout_constraintTop_toBottomOf="@id/charisma_label" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

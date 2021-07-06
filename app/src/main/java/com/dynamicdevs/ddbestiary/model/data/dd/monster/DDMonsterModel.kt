@@ -2,6 +2,7 @@ package com.dynamicdevs.ddbestiary.model.data.dd.monster
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
+import androidx.room.Ignore
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "Monsters")
@@ -42,7 +43,8 @@ data class DDMonsterModel (
     @ColumnInfo(name = "xp")
     val xp: Int
     ){
-    /*constructor(alignment: String, armor_class: Int, challenge_rating: Int,
+    @Ignore
+    constructor(alignment: String, armor_class: Int, challenge_rating: Int,
                 charisma: Int, constitution: Int, dexterity: Int,
                 hit_dice: String, index: String, intelligence: Int,
                 name: String, size: String, strength: Int, subtype: String,
@@ -50,5 +52,5 @@ data class DDMonsterModel (
             this(0, alignment, armor_class, challenge_rating,
                 charisma, constitution, dexterity, hit_dice, index,
                 intelligence, name, size, strength, subtype, type,
-                wisdom, xp)*/
+                wisdom, xp)
 }

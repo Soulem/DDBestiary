@@ -32,4 +32,4 @@ data class DDMonsterResult (
     val url: String,
     val wisdom: Int,
     val xp: Int
-): Result
+): Result{}

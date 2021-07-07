@@ -16,14 +16,13 @@ class ObjectViewModel: ViewModel() {
     private val ddMonsterRetrofit = DD5ERetrofit(Constants.DND5eAPICONSTANTS.BASE_URL);
 
     fun searchForMonster(monsterName: String){
-        ddMonsterRetrofit.getResults("").enqueue(
+        ddMonsterRetrofit.getResults(monsterName).enqueue(
             object: Callback<DDMonsterResponse> {
-                override fun onResponse(
-                    call: Call<DDMonsterResponse>,
-                    response: Response<DDMonsterResponse>
-                ) {
+                override fun onResponse(call: Call<DDMonsterResponse>, response: Response<DDMonsterResponse>) {
                     response.body()?.let{
                         monsterLiveData.postValue(it)
+                    }?:{
+                        Log.d("TAG_API_FAILURE", response.errorBody().toString())
                     }
                 }
 
@@ -35,6 +34,19 @@ class ObjectViewModel: ViewModel() {
     }
 
     fun getMonsters(){
+        ddMonsterRetrofit.getResults("").enqueue(
+            object : Callback<DDMonsterResponse>{
+                override fun onResponse(call: Call<DDMonsterResponse>, response: Response<DDMonsterResponse>) {
+                    response.body()?.let{
+                        monsterLiveData.postValue(it)
+                    }?:{
+                        Log.d("TAG_API_FAILURE", response.errorBody().toString())
+                    }
+                }
 
+                override fun onFailure(call: Call<DDMonsterResponse>, t: Throwable) {
+                    Log.d("TAG_API_FAILURE", t.localizedMessage)
+                }
+            })
     }
 }

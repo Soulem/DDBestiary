@@ -9,17 +9,16 @@
 
     <EditText
         android:id="@+id/monsterName_editText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="38dp"
         android:layout_margin="16dp"
-        android:ems="10"
+        android:hint="Search"
         android:inputType="textPersonName"
-        android:hint="Monster Name"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/search_button"
         app:layout_constraintEnd_toEndOf="parent"
-        />
+        app:layout_constraintHorizontal_weight=".75"
+        app:layout_constraintStart_toEndOf="@id/search_select_spinner"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/search_button"
@@ -27,8 +26,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:text="Find Monster"
-        app:layout_constraintStart_toStartOf="@id/monsterName_editText"
-        app:layout_constraintEnd_toEndOf="@id/monsterName_editText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/monsterName_editText"
         />
 
@@ -37,10 +36,23 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.19"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_percent="0.19015048"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/search_button" />
+
+    <Spinner
+        android:id="@+id/search_select_spinner"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:entries="Name/Type/Challenge Rating"
+        app:layout_constraintBottom_toBottomOf="@id/monsterName_editText"
+        app:layout_constraintEnd_toStartOf="@+id/monsterName_editText"
+        app:layout_constraintHorizontal_weight=".25"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/monsterName_editText"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

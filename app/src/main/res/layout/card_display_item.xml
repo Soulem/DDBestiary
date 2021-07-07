@@ -55,6 +55,7 @@
 
         <ImageView
             android:id="@+id/favorites_imageView"
+            android:clickable="true"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_margin="8dp"

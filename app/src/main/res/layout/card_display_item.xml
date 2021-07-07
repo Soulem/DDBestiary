@@ -4,6 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="16dp"
+    android:outlineAmbientShadowColor="@color/black"
     tools:context=".view.card.CardDisplayItem">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -18,81 +21,96 @@
 
         <TextView
             android:id="@+id/health_label_textView"
-            android:layout_width="30dp"
+            android:layout_width="50dp"
             android:layout_height="30dp"
-            android:text="@string/health_label"
             android:gravity="center"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toEndOf="@id/challenge_rating_textView"
-            app:layout_constraintEnd_toStartOf="@id/card_break_guideline"
-            />
+            android:textSize="12sp"
+            android:textAlignment="textStart"
+            android:text="@string/health_label"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/armor_class_label_textView"
-            android:layout_width="30dp"
+            android:layout_width="50dp"
             android:layout_height="30dp"
-            android:text="@string/armor_class_label"
             android:gravity="center"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toEndOf="@id/health_label_textView"
-            app:layout_constraintEnd_toEndOf="parent"
-            />
+            android:textSize="12sp"
+            android:textAlignment="textStart"
+            android:text="@string/armor_class_label"
+            app:layout_constraintEnd_toEndOf="@id/health_label_textView"
+            app:layout_constraintStart_toStartOf="@+id/health_label_textView"
+            app:layout_constraintTop_toBottomOf="@+id/health_label_textView" />
 
         <ImageView
             android:id="@+id/item_imageView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:src="@tools:sample/avatars"
-            />
+            app:layout_constraintEnd_toStartOf="@+id/name_textView"
+            tools:src="@tools:sample/avatars" />
+
+        <ImageView
+            android:id="@+id/favorites_imageView"
+            android:clickable="true"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/card_break_guideline"
+            app:layout_constraintTop_toTopOf="@+id/ability_score_guideline"
+            tools:src="@tools:sample/avatars" />
 
         <TextView
             android:id="@+id/name_textView"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/monster_name"
-            app:layout_constraintStart_toEndOf="@id/item_imageView"
-            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toTopOf="@id/type_textView"
-            />
+            app:layout_constraintEnd_toStartOf="@+id/health_label_textView"
+            app:layout_constraintStart_toEndOf="@+id/item_imageView"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/type_textView"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/monster_type"
-            app:layout_constraintStart_toEndOf="@id/item_imageView"
-            app:layout_constraintTop_toBottomOf="@id/name_textView"
             app:layout_constraintBottom_toTopOf="@id/subtype_textView"
-            />
+            app:layout_constraintEnd_toStartOf="@+id/card_break_guideline"
+            app:layout_constraintStart_toStartOf="@+id/name_textView"
+            app:layout_constraintTop_toBottomOf="@id/name_textView" />
 
         <TextView
             android:id="@+id/subtype_textView"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/monster_subtype"
-            app:layout_constraintStart_toEndOf="@id/item_imageView"
-            app:layout_constraintTop_toBottomOf="@id/type_textView"
             app:layout_constraintBottom_toTopOf="@id/challenge_rating_textView"
-            />
+            app:layout_constraintEnd_toStartOf="@+id/card_break_guideline"
+            app:layout_constraintStart_toStartOf="@+id/name_textView"
+            app:layout_constraintTop_toBottomOf="@id/type_textView" />
 
         <TextView
             android:id="@+id/challenge_rating_textView"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Challenge Rating: "
-            app:layout_constraintStart_toEndOf="@id/item_imageView"
-            app:layout_constraintTop_toBottomOf="@id/subtype_textView"
+            android:text="@string/challenge_rating"
             app:layout_constraintBottom_toBottomOf="@id/ability_score_guideline"
-            />
+            app:layout_constraintEnd_toStartOf="@+id/card_break_guideline"
+            app:layout_constraintStart_toStartOf="@+id/name_textView"
+            app:layout_constraintTop_toBottomOf="@id/subtype_textView" />
 
         <FrameLayout
             android:id="@+id/ability_score_layout"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginBottom="0dp"
-            app:layout_constraintStart_toEndOf="@id/item_imageView"
+            app:layout_constraintStart_toStartOf="@+id/name_textView"
             app:layout_constraintEnd_toStartOf="@id/card_break_guideline"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="@id/ability_score_guideline"/>
@@ -217,9 +235,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintStart_toEndOf="@id/ability_score_layout"
-            app:layout_constraintGuide_percent=".875"
-            />
+            app:layout_constraintGuide_percent="0.88"
+            app:layout_constraintStart_toEndOf="@id/ability_score_layout" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/ability_score_guideline"

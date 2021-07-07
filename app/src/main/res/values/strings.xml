@@ -12,4 +12,21 @@
     <string name="monster_subtype">Subtype:  </string>
     <string name="health_label">HP:  </string>
     <string name="armor_class_label">AC:  </string>
+    <string name="challenge_rating">Challenge Rating:</string>
+    <string name="strength_textView">STR:</string>
+    <string name="dexterity_textView">DEX:</string>
+    <string name="con">CON:</string>
+    <string name="intelligence_textView">INT:</string>
+    <string name="wisdom_textView">WIS:</string>
+    <string name="hit_dice_textView">Hit Dice:</string>
+    <string name="alignment_textView">Alignment:</string>
+    <string name="xp_textView">XP:</string>
+    <string name="size_textView">Size:</string>
+    <string name="languages">Languages:</string>
+    <string name="senses">Senses:</string>
+    <string name="abilities">Abilities:</string>
+    <string name="charisma_textView">CHA:</string>
+    <string name="proficiencies">Proficiencies:</string>
+    <string name="actions">Actions:</string>
+    <string name="condition_and_damage_variables">Condition and damage variables:</string>
 </resources>

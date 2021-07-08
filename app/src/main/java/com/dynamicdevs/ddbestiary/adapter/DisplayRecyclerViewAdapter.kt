@@ -4,13 +4,11 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.dynamicdevs.ddbestiary.databinding.BasicCardDisplayItemBinding
-import com.dynamicdevs.ddbestiary.databinding.CardDisplayItemBinding
-import com.dynamicdevs.ddbestiary.model.data.dd.monster.DDMonsterResult
-import com.dynamicdevs.ddbestiary.model.data.dd.monster.DDMonstersResult
+import com.dynamicdevs.ddbestiary.model.data.dd.monster.Result
 
 class DisplayRecyclerViewAdapter(): RecyclerView.Adapter<DisplayRecyclerViewAdapter.CardItemHolder>() {
     inner class CardItemHolder(val binding: BasicCardDisplayItemBinding): RecyclerView.ViewHolder(binding.root)
-    var apiList: List<DDMonsterResult> = listOf()
+    var apiList: List<Result> = listOf()
         set(value){
             field = value
             notifyDataSetChanged()
@@ -25,12 +23,12 @@ class DisplayRecyclerViewAdapter(): RecyclerView.Adapter<DisplayRecyclerViewAdap
         return CardItemHolder(binding);
     }
 
-    private var results: List<DDMonstersResult> = ArrayList<DDMonstersResult>()
+    //private var results: List<DDMonstersResult> = ArrayList<DDMonstersResult>()
 
-    fun setResults(result: List<DDMonsterResult>){
-        this.results = results
+    /*fun setResults(result: List<DDMonstersResult>){
+        this.apiList = results
         notifyDataSetChanged()
-    }
+    }*/
 
     override fun onBindViewHolder(holder: CardItemHolder, position: Int) {
         val item = apiList[position]

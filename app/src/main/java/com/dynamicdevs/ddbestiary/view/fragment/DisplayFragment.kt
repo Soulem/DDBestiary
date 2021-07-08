@@ -5,10 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.dynamicdevs.ddbestiary.R
 import com.dynamicdevs.ddbestiary.adapter.DisplayRecyclerViewAdapter
 import com.dynamicdevs.ddbestiary.databinding.FragmentDisplayBinding
-import com.dynamicdevs.ddbestiary.model.data.dd.monster.DDMonsterResult
+import com.dynamicdevs.ddbestiary.model.data.dd.monster.DDMonstersResult
+import com.dynamicdevs.ddbestiary.model.data.dd.monster.Result
+import com.dynamicdevs.ddbestiary.view.activity.MainActivity
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -20,7 +21,7 @@ import com.dynamicdevs.ddbestiary.model.data.dd.monster.DDMonsterResult
  * Use the [DisplayFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class DisplayFragment : Fragment() {
+class DisplayFragment : Fragment(), MainActivity.DisplayFragmentRecyclerInterface {
     private lateinit var binding: FragmentDisplayBinding
 
     override fun onCreateView(
@@ -37,16 +38,16 @@ class DisplayFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.displayRecyclerView.adapter = adapter
+
     }
 
-    fun updateList(list: List<DDMonsterResult>) {
+    private fun updateList(list: List<Result>) {
         adapter.apiList = list
     }
 
-
-
-
-
+    override fun updateAdapter(monsters: DDMonstersResult) {
+        updateList(monsters.results)
+    }
 
 
 //----------------------------------------------------------------------------

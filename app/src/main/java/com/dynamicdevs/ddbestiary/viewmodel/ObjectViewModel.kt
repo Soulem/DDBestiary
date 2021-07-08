@@ -15,9 +15,9 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class ObjectViewModel(): ViewModel() {
-    companion object {
+    /*companion object {
         val instance = ObjectViewModel()
-    }
+    }*/
     // for a single monster look up
     val monsterLiveData = MutableLiveData<DDMonsterResult>()
     // for a list of monsters

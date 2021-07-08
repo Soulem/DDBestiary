@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.text.method.ScrollingMovementMethod
+import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -32,13 +33,17 @@ class DetailedMonsterActivity : AppCompatActivity()  {
         setContentView(binding.root)
 
 
-        val extras: Bundle? = Intent().extras
-        val monster: String? = extras?.getString(NAME_KEY)
+//        val extras: Bundle? = Intent().extras
+//        var monster: String? = extras?.getString(NAME_KEY)
+//        Log.d("TAG_X", "monster gotten from search is ${monster}")
+
+        var monster: String? = "adult-black-dragon"
 
         monster?.let { viewModel.searchForMonster(it)}
 
         viewModel.monsterLiveData.observe(this, Observer {
             result = it
+            Log.d("TAG_X", "Result is ${result}")
 
 
 //            Glide.with(this)
@@ -66,7 +71,9 @@ class DetailedMonsterActivity : AppCompatActivity()  {
             binding.monsterSizetTextView.text = "Size: ${result.size}"
 
             binding.languageResultsTextVeiw.text = result.languages
+            binding.languageResultsTextVeiw.movementMethod = ScrollingMovementMethod()
             binding.senseResultsTextVeiw.text = result.senses.toString()
+            binding.senseResultsTextVeiw.movementMethod = ScrollingMovementMethod()
 
             val abilitiesStringBuilder = StringBuilder()
             result.special_abilities.forEach {
@@ -83,12 +90,12 @@ class DetailedMonsterActivity : AppCompatActivity()  {
             binding.proficienciesResultsTextView.movementMethod = ScrollingMovementMethod()
 
             val actionsStringBuilder = StringBuilder()
-            result.legendary_actions.forEach {
-                actionsStringBuilder.append(it.toString()).append("\n")
-            }
             result.actions.forEach {
                 actionsStringBuilder.append(it.toString()).append("\n")
             }
+//            result.legendary_actions.forEach {
+//                actionsStringBuilder.append(it.toString()).append("\n")
+//            }
             binding.actionsResultsTextView.text = actionsStringBuilder.toString()
             binding.actionsResultsTextView.movementMethod = ScrollingMovementMethod()
 

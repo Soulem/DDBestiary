@@ -203,9 +203,11 @@
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
         android:textSize="12sp"
+        android:scrollbars="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/languages_textView"
         app:layout_constraintTop_toBottomOf="@+id/languages_textView"
+        app:layout_constraintBottom_toTopOf="@id/senses_textView"
         tools:text="Languages go here" />
 
     <TextView
@@ -222,9 +224,11 @@
         android:id="@+id/sense_results_textVeiw"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:scrollbars="vertical"
         android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/abilities_textView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/senses_textView"
         app:layout_constraintTop_toBottomOf="@+id/senses_textView"

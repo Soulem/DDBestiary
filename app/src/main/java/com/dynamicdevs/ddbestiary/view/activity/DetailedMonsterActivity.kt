@@ -35,18 +35,16 @@ class DetailedMonsterActivity : AppCompatActivity()  {
         val extras: Bundle? = Intent().extras
         val monster: String? = extras?.getString(NAME_KEY)
 
-        monster?.let {
-            viewModel.searchForMonster(it)
-        }
+        monster?.let { viewModel.searchForMonster(it)}
 
-        /*viewModel.monsterLiveData.observe(this, Observer {
-            result = it[0]
+        viewModel.monsterLiveData.observe(this, Observer {
+            result = it
 
 
-            Glide.with(this)
-                .applyDefaultRequestOptions(RequestOptions.centerCropTransform())
-                .load(result.url)
-                .into(binding.monsterImageView)
+//            Glide.with(this)
+//                .applyDefaultRequestOptions(RequestOptions.centerCropTransform())
+//                .load(result.url)
+//                .into(binding.monsterImageView)
 
             binding.monsterNameTextView.text = "Name: ${result.name}"
             binding.monsterTypeTextView.text = "Type: ${result.type}"
@@ -110,9 +108,6 @@ class DetailedMonsterActivity : AppCompatActivity()  {
             binding.conditionDamageResultsTextView.text = conditionsStringBuilder.toString()
             binding.conditionDamageResultsTextView.movementMethod = ScrollingMovementMethod()
 
-
-
-        })*/
-
+        })
     }
 }

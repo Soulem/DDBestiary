@@ -40,7 +40,7 @@ class SearchFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.searchButton.setOnClickListener{
             val monsterName = binding.monsterNameEditText.text.toString().trim()
-            //apiDelegate.searchMonster(monsterName);
+           // apiDelegate.searchMonster(monsterName);
         }
     }
 

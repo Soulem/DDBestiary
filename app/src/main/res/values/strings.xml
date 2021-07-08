@@ -29,4 +29,6 @@
     <string name="proficiencies">Proficiencies:</string>
     <string name="actions">Actions:</string>
     <string name="condition_and_damage_variables">Condition and Damage Variables:</string>
+    <string name="find_monster">Find Monster</string>
+    <string name="monster_name_button">Monster Name</string>
 </resources>

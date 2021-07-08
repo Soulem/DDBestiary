@@ -9,7 +9,7 @@ import com.dynamicdevs.ddbestiary.model.data.dd.monster.DDMonsterResult
 class DisplayRecyclerViewAdapter(): RecyclerView.Adapter<DisplayRecyclerViewAdapter.CardItemHolder>() {
     inner class CardItemHolder(val binding: CardDisplayItemBinding): RecyclerView.ViewHolder(binding.root)
 
-    var list: List<DDMonsterResult> = listOf()
+    var apiList: List<DDMonsterResult> = listOf()
     set(value){
         field = value
         notifyDataSetChanged()
@@ -25,11 +25,11 @@ class DisplayRecyclerViewAdapter(): RecyclerView.Adapter<DisplayRecyclerViewAdap
     }
 
     override fun onBindViewHolder(holder: CardItemHolder, position: Int) {
-        val item = list[position]
+        val item = apiList[position]
         holder.binding.apply {
-            TODO("Set up card information")
+            this.nameTextView.text = item.name
         }
     }
 
-    override fun getItemCount(): Int = list.size
+    override fun getItemCount(): Int = apiList.size
 }

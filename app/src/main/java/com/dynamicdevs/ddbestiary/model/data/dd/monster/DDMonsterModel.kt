@@ -41,7 +41,9 @@ data class DDMonsterModel (
     @ColumnInfo(name = "wisdom")
     val wisdom: Int,
     @ColumnInfo(name = "xp")
-    val xp: Int
+    val xp: Int,
+    @ColumnInfo(name="favorite")
+    val favorite:Boolean
     ){
     @Ignore
     constructor(alignment: String, armor_class: Int, challenge_rating: Int,
@@ -52,5 +54,5 @@ data class DDMonsterModel (
             this(0, alignment, armor_class, challenge_rating,
                 charisma, constitution, dexterity, hit_dice, index,
                 intelligence, name, size, strength, subtype, type,
-                wisdom, xp)
+                wisdom, xp, false)
 }

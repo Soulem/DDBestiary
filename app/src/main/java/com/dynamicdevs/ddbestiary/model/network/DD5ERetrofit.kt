@@ -10,5 +10,6 @@ class DD5ERetrofit (private val baseURL : String) {
         .build()
         .create(ServiceProvider.DND5EAPIService::class.java)
 
-    fun getResults(query:String) = service.getMonsters(query)
+    fun getResult(query:String) = service.getMonster(query)
+    fun getResults() = service.getMonsters()
 }

@@ -240,13 +240,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/senses_textView" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/abilities_recyclerView"
+    <TextView
+        android:id="@+id/abilities_results_textView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:textSize="12sp"
+        android:scrollbars="vertical"
         app:layout_constraintBottom_toTopOf="@id/proficiencies_textView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/abilities_textView"
@@ -263,13 +264,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/abilities_textView" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/proficiencies_recyclerView"
+    <TextView
+        android:id="@+id/proficiencies_results_textView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:textSize="12sp"
+        android:scrollbars="vertical"
         app:layout_constraintBottom_toTopOf="@id/actions_textView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/proficiencies_textView"
@@ -287,13 +289,14 @@
         app:layout_constraintBottom_toTopOf="@id/condition_damage_textView"
         app:layout_constraintTop_toBottomOf="@id/proficiencies_textView" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/actions_recyclerView"
+    <TextView
+        android:id="@+id/actions_results_textView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:textSize="12sp"
+        android:scrollbars="vertical"
         app:layout_constraintBottom_toTopOf="@id/condition_damage_textView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/actions_textView"
@@ -310,14 +313,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/actions_textView" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/condition_damage_recyclerView"
+    <TextView
+        android:id="@+id/condition_damage_results_textView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:textSize="12sp"
+        android:scrollbars="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/condition_damage_textView"

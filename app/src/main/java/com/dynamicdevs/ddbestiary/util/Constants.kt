@@ -8,5 +8,7 @@ class Constants {
         const val VERSION = ""
         const val MONSTER_PATH = "monster_name"
         const val MONSTER_END_POINT = "monsters/{$MONSTER_PATH}"
+        const val NAME_KEY = "monster_name_key"
     }
+
 }

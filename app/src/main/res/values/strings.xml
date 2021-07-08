@@ -28,5 +28,5 @@
     <string name="charisma_textView">CHA:</string>
     <string name="proficiencies">Proficiencies:</string>
     <string name="actions">Actions:</string>
-    <string name="condition_and_damage_variables">Condition and damage variables:</string>
+    <string name="condition_and_damage_variables">Condition and Damage Variables:</string>
 </resources>

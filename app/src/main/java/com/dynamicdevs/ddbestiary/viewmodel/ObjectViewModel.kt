@@ -15,9 +15,9 @@ import retrofit2.Response
 
 class ObjectViewModel(): ViewModel() {
     // for a single monster look up
-    val monsterLiveData = MutableLiveData<List<DDMonsterResult>>()
+    val monsterLiveData = MutableLiveData<DDMonsterResult>()
     // for a list of monsters
-    val monstersLiveData = MutableLiveData<List<DDMonstersResult>>()
+    val monstersLiveData = MutableLiveData<DDMonstersResult>()
     // for the database.  we will insert a single monster
     private lateinit var monsterDatabase: DDMonsterDatabase
 
@@ -34,10 +34,10 @@ class ObjectViewModel(): ViewModel() {
 
     fun searchForMonster(monsterName: String){
         ddMonsterRetrofit.getResult(monsterName).enqueue(
-            object: Callback<DDMonsterResponse> {
+            object: Callback<DDMonsterResult> {
                 override fun onResponse(
-                    call: Call<DDMonsterResponse>,
-                    response: Response<DDMonsterResponse>
+                    call: Call<DDMonsterResult>,
+                    response: Response<DDMonsterResult>
                 ) {
                     response.body()?.let{
                         monsterLiveData.postValue(it)
@@ -46,7 +46,7 @@ class ObjectViewModel(): ViewModel() {
                     }
                 }
 
-                override fun onFailure(call: Call<DDMonsterResponse>, t: Throwable) {
+                override fun onFailure(call: Call<DDMonsterResult>, t: Throwable) {
                     Log.d("TAG_API_FAILURE", t.localizedMessage)
                 }
             }
@@ -55,10 +55,10 @@ class ObjectViewModel(): ViewModel() {
 
     fun getMonsters(){
         ddMonsterRetrofit.getResults().enqueue(
-            object: Callback<DDMonstersResponse> {
+            object: Callback<DDMonstersResult> {
                 override fun onResponse(
-                    call: Call<DDMonstersResponse>,
-                    response: Response<DDMonstersResponse>
+                    call: Call<DDMonstersResult>,
+                    response: Response<DDMonstersResult>
                 ) {
                     response.body()?.let{
                         monstersLiveData.postValue(it)
@@ -67,7 +67,7 @@ class ObjectViewModel(): ViewModel() {
                     }
                 }
 
-                override fun onFailure(call: Call<DDMonstersResponse>, t: Throwable) {
+                override fun onFailure(call: Call<DDMonstersResult>, t: Throwable) {
                     Log.d("TAG_API_FAILURE", t.localizedMessage)
                 }
             }

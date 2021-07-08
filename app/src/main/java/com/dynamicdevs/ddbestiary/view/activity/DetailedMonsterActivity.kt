@@ -39,7 +39,7 @@ class DetailedMonsterActivity : AppCompatActivity()  {
             viewModel.searchForMonster(it)
         }
 
-        viewModel.monsterLiveData.observe(this, Observer {
+        /*viewModel.monsterLiveData.observe(this, Observer {
             result = it[0]
 
 
@@ -112,7 +112,7 @@ class DetailedMonsterActivity : AppCompatActivity()  {
 
 
 
-        })
+        })*/
 
     }
 }

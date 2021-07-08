@@ -33,6 +33,8 @@ class ObjectViewModel(): ViewModel() {
     }
 
     fun searchForMonster(monsterName: String){
+        if (monsterName == "")
+            return
         ddMonsterRetrofit.getResult(monsterName).enqueue(
             object: Callback<DDMonsterResult> {
                 override fun onResponse(

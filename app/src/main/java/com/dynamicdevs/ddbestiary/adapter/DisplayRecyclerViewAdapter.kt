@@ -6,15 +6,15 @@ import androidx.recyclerview.widget.RecyclerView
 import com.dynamicdevs.ddbestiary.databinding.BasicCardDisplayItemBinding
 import com.dynamicdevs.ddbestiary.databinding.CardDisplayItemBinding
 import com.dynamicdevs.ddbestiary.model.data.dd.monster.DDMonsterResult
+import com.dynamicdevs.ddbestiary.model.data.dd.monster.DDMonstersResult
 
 class DisplayRecyclerViewAdapter(): RecyclerView.Adapter<DisplayRecyclerViewAdapter.CardItemHolder>() {
     inner class CardItemHolder(val binding: BasicCardDisplayItemBinding): RecyclerView.ViewHolder(binding.root)
-
     var apiList: List<DDMonsterResult> = listOf()
-    set(value){
-        field = value
-        notifyDataSetChanged()
-    }
+        set(value){
+            field = value
+            notifyDataSetChanged()
+        }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardItemHolder {
         val binding = BasicCardDisplayItemBinding.inflate(
@@ -25,6 +25,13 @@ class DisplayRecyclerViewAdapter(): RecyclerView.Adapter<DisplayRecyclerViewAdap
         return CardItemHolder(binding);
     }
 
+    private var results: List<DDMonstersResult> = ArrayList<DDMonstersResult>()
+
+    fun setResults(result: List<DDMonsterResult>){
+        this.results = results
+        notifyDataSetChanged()
+    }
+
     override fun onBindViewHolder(holder: CardItemHolder, position: Int) {
         val item = apiList[position]
         holder.binding.apply {
@@ -33,4 +40,30 @@ class DisplayRecyclerViewAdapter(): RecyclerView.Adapter<DisplayRecyclerViewAdap
     }
 
     override fun getItemCount(): Int = apiList.size
+
+    //-----------------------------------------------------------------------------------------------------------
+
+//    var apiList: List<DDMonsterResult> = listOf()
+//    set(value){
+//        field = value
+//        notifyDataSetChanged()
+//    }
+//
+//    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardItemHolder {
+//        val binding = BasicCardDisplayItemBinding.inflate(
+//            LayoutInflater.from(parent.context),
+//            parent,
+//            false
+//        )
+//        return CardItemHolder(binding);
+//    }
+//
+//    override fun onBindViewHolder(holder: CardItemHolder, position: Int) {
+//        val item = apiList[position]
+//        holder.binding.apply {
+//            this.monsterNameTextViewBasic.text = item.name
+//        }
+//    }
+//
+//    override fun getItemCount(): Int = apiList.size
 }

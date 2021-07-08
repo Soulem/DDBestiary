@@ -19,7 +19,11 @@ class MainActivity : AppCompatActivity()  {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        displayFragment = supportFragmentManager.findFragmentById(R.id.display_frameLayout) as DisplayFragment
+
         viewModel.setDatabase(this)
         viewModel.getMonsters()
     }
+
 }

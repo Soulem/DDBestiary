@@ -10,6 +10,7 @@
     android:onClick="cardClick"
     android:outlineAmbientShadowColor="@color/black"
     android:background="#999999"
+    android:layout_margin="4dp"
     tools:context=".view.card.CardDisplayItem">
 
     <androidx.constraintlayout.widget.ConstraintLayout

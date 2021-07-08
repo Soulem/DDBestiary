@@ -20,7 +20,6 @@ class MainActivity : AppCompatActivity()  {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         viewModel.setDatabase(this)
-        viewModel.searchForMonster("")
-        //viewModel.getMonsters()
+        viewModel.getMonsters()
     }
 }

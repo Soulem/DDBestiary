@@ -6,6 +6,8 @@
     android:layout_height="wrap_content"
     app:cardCornerRadius="8dp"
     app:cardElevation="16dp"
+    android:clickable="true"
+    android:onClick="cardClick"
     android:outlineAmbientShadowColor="@color/black"
     tools:context=".view.card.CardDisplayItem">
 
@@ -28,7 +30,8 @@
             android:textAlignment="textStart"
             android:text="@string/health_label"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="RtlCompat" />
 
         <TextView
             android:id="@+id/armor_class_label_textView"
@@ -40,7 +43,8 @@
             android:text="@string/armor_class_label"
             app:layout_constraintEnd_toEndOf="@id/health_label_textView"
             app:layout_constraintStart_toStartOf="@+id/health_label_textView"
-            app:layout_constraintTop_toBottomOf="@+id/health_label_textView" />
+            app:layout_constraintTop_toBottomOf="@+id/health_label_textView"
+            tools:ignore="RtlCompat" />
 
         <ImageView
             android:id="@+id/item_imageView"
@@ -129,6 +133,7 @@
         <EditText
             style="@style/AbilityScoreTextStyle"
             android:id="@+id/strength_value"
+            android:clickable="false"
             app:layout_constraintBottom_toBottomOf="@+id/ability_score_layout"
             app:layout_constraintEnd_toStartOf="@id/dexterity_value"
             app:layout_constraintStart_toStartOf="@id/ability_score_layout"
@@ -148,6 +153,7 @@
         <EditText
         style="@style/AbilityScoreTextStyle"
         android:id="@+id/dexterity_value"
+        android:clickable="false"
         app:layout_constraintStart_toEndOf="@id/strength_value"
         app:layout_constraintBottom_toBottomOf="@id/ability_score_layout"
         app:layout_constraintTop_toBottomOf="@id/dexterity_label"
@@ -168,6 +174,7 @@
         <EditText
         style="@style/AbilityScoreTextStyle"
         android:id="@+id/constitution_value"
+        android:clickable="false"
         app:layout_constraintStart_toEndOf="@id/dexterity_value"
         app:layout_constraintBottom_toBottomOf="@id/ability_score_layout"
         app:layout_constraintTop_toBottomOf="@id/constitution_label"
@@ -187,6 +194,7 @@
         <EditText
         style="@style/AbilityScoreTextStyle"
         android:id="@+id/intelligence_value"
+        android:clickable="false"
         app:layout_constraintStart_toEndOf="@id/constitution_value"
         app:layout_constraintBottom_toBottomOf="@id/ability_score_layout"
         app:layout_constraintTop_toBottomOf="@id/intelligence_label"
@@ -206,6 +214,7 @@
         <EditText
         style="@style/AbilityScoreTextStyle"
         android:id="@+id/wisdom_value"
+        android:clickable="false"
         app:layout_constraintStart_toEndOf="@id/intelligence_value"
         app:layout_constraintBottom_toBottomOf="@id/ability_score_layout"
         app:layout_constraintTop_toBottomOf="@id/wisdom_label"
@@ -225,6 +234,7 @@
         <EditText
         style="@style/AbilityScoreTextStyle"
         android:id="@+id/charisma_value"
+        android:clickable="false"
         app:layout_constraintBottom_toBottomOf="@id/ability_score_layout"
         app:layout_constraintEnd_toEndOf="@id/card_break_guideline"
         app:layout_constraintStart_toEndOf="@id/wisdom_value"

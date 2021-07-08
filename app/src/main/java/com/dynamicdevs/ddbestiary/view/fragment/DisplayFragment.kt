@@ -46,6 +46,7 @@ class DisplayFragment : Fragment(), MainActivity.DisplayFragmentRecyclerInterfac
     }
 
     override fun updateAdapter(monsters: DDMonstersResult) {
+        //MAKE SURE WE SET THE LIST OF RESULTS TO THE LIST IN OUR ADAPTOR
         updateList(monsters.results)
     }
 

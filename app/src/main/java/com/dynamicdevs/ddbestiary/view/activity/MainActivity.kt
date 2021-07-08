@@ -27,13 +27,19 @@ class MainActivity : AppCompatActivity()  {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //display_frameLayout
+        //grabed the display fragment
         displayFragment = supportFragmentManager.findFragmentById(R.id.display_frameLayout) as DisplayFragment
+        // the displayFragment is a DisplayFragmentRecyclerInterface
+        // so we store the displayFragment in that interface variable
         val displayFragRecyclerView : DisplayFragmentRecyclerInterface = displayFragment
 
+        //set up the viewModel
         viewModel.setDatabase(this)
+        //make the call to get ALL MONSTERS
         viewModel.getMonsters()
+        //observe the data for when it changes.
         viewModel.monstersLiveData.observe(this, Observer{
+            //now, in our display model, we update our addapter, pasing in our result
             displayFragRecyclerView.updateAdapter(it)
 
         })

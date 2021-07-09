@@ -5,7 +5,6 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.room.*
-import com.dynamicdevs.ddbestiary.adapter.DisplayRecyclerViewAdapter
 import com.dynamicdevs.ddbestiary.model.data.dd.monster.*
 import com.dynamicdevs.ddbestiary.model.db.DDMonsterDatabase
 import com.dynamicdevs.ddbestiary.model.network.DD5ERetrofit

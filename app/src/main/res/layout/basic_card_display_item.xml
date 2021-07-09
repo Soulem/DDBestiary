@@ -11,6 +11,7 @@
     android:outlineAmbientShadowColor="@color/black"
     android:background="#999999"
     android:layout_margin="4dp"
+    android:id="@+id/basic_card_layout"
     tools:context=".view.card.CardDisplayItem">
 
     <androidx.constraintlayout.widget.ConstraintLayout

@@ -32,14 +32,12 @@ class DetailedMonsterActivity : AppCompatActivity()  {
         binding = ActivityDetailedMonsterBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val extras: Bundle? = Intent().extras
+        //var monster: String? = extras?.getString(NAME_KEY)
+        var monster: String? = intent.getStringExtra(NAME_KEY)
+        Log.d("TAG_X", "monster gotten from search is ${monster}")
 
-//        val extras: Bundle? = Intent().extras
-//        var monster: String? = extras?.getString(NAME_KEY)
-//        Log.d("TAG_X", "monster gotten from search is ${monster}")
-
-        var monster: String? = "adult-black-dragon"
-
-        monster?.let { viewModel.searchForMonster(it)}
+        monster?.let { viewModel.searchForMonster(it.lowercase())}
 
         viewModel.monsterLiveData.observe(this, Observer {
             result = it

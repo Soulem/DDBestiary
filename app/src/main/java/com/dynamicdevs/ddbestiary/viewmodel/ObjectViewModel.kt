@@ -2,6 +2,7 @@ package com.dynamicdevs.ddbestiary.viewmodel
 
 import android.content.Context
 import android.util.Log
+import androidx.activity.viewModels
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.room.*
@@ -14,9 +15,9 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class ObjectViewModel(): ViewModel() {
-    /*companion object {
-        val instance = ObjectViewModel()
-    }*/
+    companion object {
+        val instance  = ObjectViewModel()
+    }
     // for a single monster look up
     val monsterLiveData = MutableLiveData<DDMonsterResult>()
     // for a list of monsters
@@ -24,7 +25,7 @@ class ObjectViewModel(): ViewModel() {
     // for the database.  we will insert a single monster
     private lateinit var monsterDatabase: DDMonsterDatabase
 
-    private val ddMonsterRetrofit = DD5ERetrofit(Constants.DND5eAPICONSTANTS.BASE_URL);
+    private val ddMonsterRetrofit = DD5ERetrofit(Constants.BASE_URL);
 
     fun setDatabase(context : Context) {
         monsterDatabase = Room.databaseBuilder(

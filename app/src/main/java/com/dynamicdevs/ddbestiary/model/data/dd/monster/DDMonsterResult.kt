@@ -1,8 +1,15 @@
 package com.dynamicdevs.ddbestiary.model.data.dd.monster
 
-//import androidx.room.*
+import android.os.Parcel
+import android.os.Parcelable
 import com.dynamicdevs.ddbestiary.model.data.Result
+import com.dynamicdevs.ddbestiary.util.Constants.Companion.DATA_NOT_FOUND
+import kotlinx.parcelize.Parceler
+import kotlinx.parcelize.Parcelize
+import kotlinx.parcelize.RawValue
 
+
+@Parcelize
 //@Entity(tableName = "Monsters")
 data class DDMonsterResult (
     //@PrimaryKey(autoGenerate = true)
@@ -19,15 +26,15 @@ data class DDMonsterResult (
    //@ColumnInfo(name = "charisma")
     val charisma: Int,
     //@ColumnInfo(name = "condition_immunities")
-    val condition_immunities: List<Any>,
+    val condition_immunities: @RawValue List<Any>,
     //@ColumnInfo(name = "constitution")
     val constitution: Int,
     //@ColumnInfo(name = "damage_immunities")
     val damage_immunities: List<String>,
     //@ColumnInfo(name = "damage_resistances")
-    val damage_resistances: List<Any>,
+    val damage_resistances: @RawValue List<Any>,
     //@ColumnInfo(name = "damage_vulnerabilities")
-    val damage_vulnerabilities: List<Any>,
+    val damage_vulnerabilities: @RawValue List<Any>,
    //@ColumnInfo(name = "dexterity")
     val dexterity: Int,
    //@ColumnInfo(name = "hit_dice")
@@ -57,7 +64,7 @@ data class DDMonsterResult (
     //@ColumnInfo(name = "strength")
     val strength: Int,
     //@ColumnInfo(name = "subtype")
-    val subtype: Any,
+    val subtype: @RawValue Any,
     //@ColumnInfo(name = "type")
     val type: String,
     //@ColumnInfo(name = "type")
@@ -68,7 +75,46 @@ data class DDMonsterResult (
     val xp: Int,
     //@ColumnInfo(name = "favorite")
     val favorite: Boolean
-): Result{
+): Result, Parcelable {
+    private companion object : Parceler<DDMonsterResult> {
+        override fun DDMonsterResult.write(parcel: Parcel, flags: Int) {
+            parcel.writeArray(arrayOf(actions))
+            parcel.writeString(alignment)
+            parcel.writeInt(armor_class)
+            parcel.writeInt(challenge_rating)
+            parcel.writeInt(charisma)
+            parcel.writeArray(arrayOf(condition_immunities))
+            parcel.writeInt(constitution)
+            parcel.writeArray(arrayOf(damage_immunities))
+            parcel.writeArray(arrayOf(damage_resistances))
+            parcel.writeArray(arrayOf(damage_vulnerabilities))
+            parcel.writeInt(dexterity)
+            parcel.writeString(hit_dice)
+            parcel.writeInt(hit_points)
+            parcel.writeString(index)
+            parcel.writeInt(intelligence)
+            parcel.writeString(languages)
+            parcel.writeArray(arrayOf(legendary_actions))
+            parcel.writeString(name)
+            parcel.writeArray(arrayOf(proficiencies))
+            parcel.writeParcelable(senses, 0)
+            parcel.writeString(size)
+            parcel.writeArray(arrayOf(special_abilities))
+            parcel.writeParcelable(speed, 0)
+            parcel.writeInt(strength)
+            parcel.writeValue(subtype)
+            parcel.writeString(type)
+            parcel.writeString(url)
+            parcel.writeInt(wisdom)
+            parcel.writeInt(xp)
+            parcel.writeValue(favorite)
+        }
+
+        override fun create(parcel: Parcel): DDMonsterResult {
+            // Custom read implementation
+            return DDMonsterResult(parcel)
+        }
+    }
     //@Ignore
     constructor (actions: List<Action>, alignment: String, armor_class: Int, challenge_rating: Int, charisma: Int,
     condition_immunities: List<Any>, constitution: Int, damage_immunities: List<String>,
@@ -81,6 +127,47 @@ data class DDMonsterResult (
     condition_immunities, constitution, damage_immunities, damage_resistances, damage_vulnerabilities, dexterity,
     hit_dice, hit_points, index, intelligence, languages, legendary_actions, name, proficiencies,
     senses, size, special_abilities, speed, strength, subtype, type, url, wisdom, xp, false)
+
+    private constructor(parcel: Parcel) : this(
+        arrayListOf<Action>().apply{
+            parcel.readList(this,Action::class.java.classLoader)},
+        parcel.readString() ?: DATA_NOT_FOUND,
+        parcel.readInt(),
+        parcel.readInt(),
+        parcel.readInt(),
+        arrayListOf<Any>().apply{
+            parcel.readList(this,Any::class.java.classLoader)},
+        parcel.readInt(),
+        arrayListOf<String>().apply{
+            parcel.readList(this,String::class.java.classLoader)},
+        arrayListOf<Any>().apply{
+            parcel.readList(this,Any::class.java.classLoader)},
+        arrayListOf<Any>().apply{
+            parcel.readList(this,Any::class.java.classLoader)},
+        parcel.readInt(),
+        parcel.readString() ?: DATA_NOT_FOUND,
+        parcel.readInt(),
+        parcel.readString() ?: DATA_NOT_FOUND,
+        parcel.readInt(),
+        parcel.readString() ?: DATA_NOT_FOUND,
+        arrayListOf<LegendaryAction>().apply{
+            parcel.readList(this,LegendaryAction::class.java.classLoader)},
+        parcel.readString() ?: DATA_NOT_FOUND,
+        arrayListOf<Proficiency>().apply{
+            parcel.readList(this,Proficiency::class.java.classLoader)},
+        parcel.readParcelable<Senses>(Senses::class.java.classLoader)  ?: Senses(DATA_NOT_FOUND, DATA_NOT_FOUND, 0),
+        parcel.readString()  ?: DATA_NOT_FOUND,
+        arrayListOf<SpecialAbility>().apply{
+            parcel.readList(this,SpecialAbility::class.java.classLoader)},
+        parcel.readParcelable<Speed>(Speed::class.java.classLoader)  ?: Speed(DATA_NOT_FOUND, DATA_NOT_FOUND, DATA_NOT_FOUND),
+        parcel.readInt(),
+        parcel.readValue(Any::class.java.classLoader) ?: DATA_NOT_FOUND,
+        parcel.readString() ?: DATA_NOT_FOUND,
+        parcel.readString() ?: DATA_NOT_FOUND,
+        parcel.readInt(),
+        parcel.readInt(),
+        parcel.readValue(Boolean::class.java.classLoader) as Boolean)
+
 
     /*inner class DDMonsterDBConverters {
         @TypeConverter

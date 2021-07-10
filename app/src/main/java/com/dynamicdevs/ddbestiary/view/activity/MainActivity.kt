@@ -23,18 +23,20 @@ class MainActivity : AppCompatActivity(), SearchMonsterDelegate {
     private lateinit var binding: ActivityMainBinding
     private lateinit var displayFragment : DisplayFragment
     private lateinit var searchFragment: SearchFragment
-    private val viewModel : ObjectViewModel by viewModels()
+    private lateinit var viewModel : ObjectViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
         //grabed the display fragment
         displayFragment = supportFragmentManager.findFragmentById(R.id.display_frameLayout) as DisplayFragment
         searchFragment = supportFragmentManager.findFragmentById(R.id.search_frameLayout) as SearchFragment
         displayFragment.setAdapterSerchMonsterDelegate(this)
         searchFragment.setSearchMonsterDelegate(this)
+        viewModel = ObjectViewModel.instance
         // the displayFragment is a DisplayFragmentRecyclerInterface
         // so we store the displayFragment in that interface variable
         val displayFragRecyclerView : DisplayFragmentRecyclerInterface = displayFragment
@@ -52,10 +54,22 @@ class MainActivity : AppCompatActivity(), SearchMonsterDelegate {
     }
 
     override fun searchForMonster(monsterName: String) {
-        var intent = Intent(this, DetailedMonsterActivity::class.java)
-        intent.putExtra(Constants.NAME_KEY, monsterName)
-        Log.d("TAG_X", "searched for ${monsterName}")
-        startActivity(intent)
+        var hasChanged : Boolean = false
+        viewModel.searchForMonster(monsterName.lowercase())
+        viewModel.monsterLiveData.observe(this, Observer{ monsterResult ->
+            var intent = Intent(this, DetailedMonsterActivity::class.java)
+            //intent.putExtra(Constants.NAME_KEY, monsterResult)
+            Log.d("TAG_X", "searched for $monsterName")
+            startActivity(intent)
+        })
+
+        /*if (!hasChanged){
+            searchFragment = supportFragmentManager.findFragmentById(R.id.search_frameLayout) as SearchFragment
+            searchFragment.showError()
+            /*val tempToast = Toast.makeText(this, "That monster does not exist, please search for a different monster.", Toast.LENGTH_LONG)
+            tempToast.setGravity(Gravity.TOP,0, 0 )
+            tempToast.show()*/
+        }*/
     }
 
 }

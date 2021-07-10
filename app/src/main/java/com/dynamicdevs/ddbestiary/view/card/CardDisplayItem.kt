@@ -4,9 +4,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import com.dynamicdevs.ddbestiary.R
 import com.dynamicdevs.ddbestiary.databinding.CardDisplayItemBinding
-import com.dynamicdevs.ddbestiary.util.Constants.DND5eAPICONSTANTS.NAME_KEY
+import com.dynamicdevs.ddbestiary.util.Constants.Companion.NAME_KEY
 import com.dynamicdevs.ddbestiary.view.activity.DetailedMonsterActivity
 
 class CardDisplayItem : AppCompatActivity() {

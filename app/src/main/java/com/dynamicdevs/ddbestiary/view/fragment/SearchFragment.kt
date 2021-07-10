@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.dynamicdevs.ddbestiary.databinding.FragmentSearchBinding
 import com.dynamicdevs.ddbestiary.view.delegate.SearchMonsterDelegate
+import com.google.android.material.internal.VisibilityAwareImageButton
 
 class SearchFragment : Fragment() {
     private lateinit var binding: FragmentSearchBinding
@@ -19,6 +20,14 @@ class SearchFragment : Fragment() {
 //    }
     fun setSearchMonsterDelegate(searchMonsterDelegate: SearchMonsterDelegate){
         this.searchMonsterDelegate = searchMonsterDelegate
+    }
+
+    fun showError(){
+        binding.errorTextView.visibility = View.VISIBLE
+        Thread(Runnable{
+            Thread.sleep(3500)
+            binding.errorTextView.visibility = View.INVISIBLE
+        }).start()
     }
 
     override fun onCreateView(

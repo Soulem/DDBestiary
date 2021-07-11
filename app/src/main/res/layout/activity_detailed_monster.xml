@@ -20,6 +20,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:fontFamily="@font/bad_script_regular"
+        android:textStyle="bold"
         android:text="@string/monster_name"
         app:layout_constraintEnd_toEndOf="@+id/monster_imageView"
         app:layout_constraintStart_toStartOf="@+id/monster_imageView"
@@ -30,6 +32,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/monster_type"
+        android:fontFamily="@font/bad_script_regular"
+        android:textStyle="bold"
         android:layout_margin="8dp"
         app:layout_constraintEnd_toEndOf="@+id/monster_imageView"
         app:layout_constraintStart_toStartOf="@+id/monster_imageView"
@@ -41,6 +45,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         android:text="@string/monster_subtype"
+        android:fontFamily="@font/bad_script_regular"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/monster_imageView"
         app:layout_constraintStart_toStartOf="@+id/monster_imageView"
         app:layout_constraintTop_toBottomOf="@+id/monster_type_textView" />
@@ -51,6 +57,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         android:text="@string/xp_textView"
+        android:fontFamily="@font/bad_script_regular"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@id/monster_imageView"
         app:layout_constraintStart_toStartOf="@id/monster_imageView"
         app:layout_constraintTop_toBottomOf="@id/monster_subtype_textView" />
@@ -62,6 +70,8 @@
         android:layout_margin="16dp"
         android:textSize="12sp"
         android:text="@string/challenge_rating"
+        android:fontFamily="@font/bad_script_regular"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -73,6 +83,8 @@
         android:layout_marginEnd="16dp"
         android:textSize="12sp"
         android:text="@string/armor_class_label"
+        android:fontFamily="@font/bad_script_regular"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/monster_challenge_rating_textView" />
 
@@ -84,6 +96,8 @@
         android:layout_marginEnd="16dp"
         android:textSize="12sp"
         android:text="@string/health_label"
+        android:fontFamily="@font/bad_script_regular"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/monster_ac_textView" />
 
@@ -95,6 +109,8 @@
         android:layout_marginEnd="16dp"
         android:textSize="12sp"
         android:text="@string/hit_dice_textView"
+        android:fontFamily="@font/bad_script_regular"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/monster_hp_textView" />
 
@@ -106,6 +122,8 @@
         android:layout_marginEnd="12dp"
         android:text="@string/alignment_textView"
         android:textSize="12sp"
+        android:fontFamily="@font/bad_script_regular"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/monster_hitdice_textView" />
 
@@ -117,6 +135,8 @@
         android:layout_marginEnd="12dp"
         android:text="@string/size_textView"
         android:textSize="12sp"
+        android:fontFamily="@font/bad_script_regular"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/monster_alignment_textView" />
 
@@ -128,6 +148,8 @@
         android:layout_margin="16dp"
         android:textSize="12sp"
         android:text="@string/strength_textView"
+        android:fontFamily="@font/bad_script_regular"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -139,6 +161,8 @@
         android:layout_marginTop="8dp"
         android:textSize="12sp"
         android:text="@string/dexterity_textView"
+        android:fontFamily="@font/bad_script_regular"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/strength_textView" />
 
@@ -150,6 +174,8 @@
         android:layout_marginTop="8dp"
         android:textSize="12sp"
         android:text="@string/con"
+        android:fontFamily="@font/bad_script_regular"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/dexterity_textView" />
 
@@ -161,6 +187,8 @@
         android:layout_marginTop="8dp"
         android:textSize="12sp"
         android:text="@string/intelligence_textView"
+        android:fontFamily="@font/bad_script_regular"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/constitution_textView" />
 
@@ -172,6 +200,8 @@
         android:layout_marginTop="8dp"
         android:textSize="12sp"
         android:text="@string/wisdom_textView"
+        android:fontFamily="@font/bad_script_regular"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/intelligence_textView" />
 
@@ -183,6 +213,8 @@
         android:layout_marginTop="8dp"
         android:textSize="12sp"
         android:text="@string/charisma_textView"
+        android:fontFamily="@font/bad_script_regular"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/wisdom_textView" />
 
@@ -192,6 +224,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:text="@string/languages"
+        android:fontFamily="@font/kaushan_script_regular"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/monster_xp_textView" />
@@ -203,6 +236,8 @@
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
         android:textSize="12sp"
+        android:fontFamily="@font/bad_script_regular"
+        android:textStyle="bold"
         android:scrollbars="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/languages_textView"
@@ -216,6 +251,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="@string/senses"
+        android:fontFamily="@font/kaushan_script_regular"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/language_results_textVeiw" />
@@ -228,6 +264,8 @@
         android:layout_marginEnd="16dp"
         android:scrollbars="vertical"
         android:textSize="12sp"
+        android:fontFamily="@font/bad_script_regular"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/abilities_textView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/senses_textView"
@@ -240,6 +278,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:text="@string/abilities"
+        android:fontFamily="@font/kaushan_script_regular"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/senses_textView" />
@@ -251,6 +290,8 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:textSize="12sp"
+        android:fontFamily="@font/bad_script_regular"
+        android:textStyle="bold"
         android:scrollbars="vertical"
         app:layout_constraintBottom_toTopOf="@id/proficiencies_textView"
         app:layout_constraintEnd_toEndOf="parent"
@@ -263,6 +304,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:text="@string/proficiencies"
+        android:fontFamily="@font/kaushan_script_regular"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@id/actions_textView"
         app:layout_constraintStart_toStartOf="parent"
@@ -275,6 +317,8 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:textSize="12sp"
+        android:fontFamily="@font/bad_script_regular"
+        android:textStyle="bold"
         android:scrollbars="vertical"
         app:layout_constraintBottom_toTopOf="@id/actions_textView"
         app:layout_constraintEnd_toEndOf="parent"
@@ -287,6 +331,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:text="@string/actions"
+        android:fontFamily="@font/kaushan_script_regular"
         app:layout_constraintVertical_weight=".25"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -300,6 +345,8 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:textSize="12sp"
+        android:fontFamily="@font/bad_script_regular"
+        android:textStyle="bold"
         android:scrollbars="vertical"
         app:layout_constraintBottom_toTopOf="@id/condition_damage_textView"
         app:layout_constraintEnd_toEndOf="parent"
@@ -312,6 +359,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:text="@string/condition_and_damage_variables"
+        android:fontFamily="@font/kaushan_script_regular"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -325,6 +373,8 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:textSize="12sp"
+        android:fontFamily="@font/bad_script_regular"
+        android:textStyle="bold"
         android:scrollbars="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

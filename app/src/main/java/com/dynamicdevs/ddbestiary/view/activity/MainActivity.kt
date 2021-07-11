@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.util.Log
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.dynamicdevs.ddbestiary.R
 import com.dynamicdevs.ddbestiary.databinding.ActivityMainBinding
 import com.dynamicdevs.ddbestiary.model.data.dd.monster.DDMonstersResult
@@ -29,6 +31,11 @@ class MainActivity : AppCompatActivity(), SearchMonsterDelegate {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        Glide.with(binding.root)
+            .applyDefaultRequestOptions(RequestOptions.centerCropTransform())
+            .load(R.drawable.paper_texture)
+            .into(binding.backgroundMainIv)
 
 
         //grabed the display fragment

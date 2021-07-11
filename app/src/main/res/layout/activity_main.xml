@@ -6,6 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".view.activity.MainActivity">
 
+    <ImageView
+        android:id="@+id/background_main_iv"
+        android:layout_width="700dp"
+        android:layout_height="match_parent"
+        android:elevation="-1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
     <fragment
         android:id="@+id/search_frameLayout"
         android:name="com.dynamicdevs.ddbestiary.view.fragment.SearchFragment"

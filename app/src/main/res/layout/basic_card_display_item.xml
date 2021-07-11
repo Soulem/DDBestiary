@@ -9,10 +9,10 @@
     android:clickable="true"
     android:onClick="cardClick"
     android:outlineAmbientShadowColor="@color/black"
-    android:background="#999999"
     android:layout_margin="4dp"
     android:id="@+id/basic_card_layout"
     tools:context=".view.card.CardDisplayItem">
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/monster_profile"
@@ -23,6 +23,18 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         >
+
+        <ImageView
+            android:id="@+id/background_card_iv"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:background="@drawable/ancient_paper"
+            android:elevation="-1dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
 
         <TextView
             android:id="@+id/monster_name_textView_basic"

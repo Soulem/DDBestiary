@@ -4,6 +4,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
+import com.dynamicdevs.ddbestiary.R
 import com.dynamicdevs.ddbestiary.databinding.BasicCardDisplayItemBinding
 import com.dynamicdevs.ddbestiary.util.Constants.Companion.NAME_KEY
 import com.dynamicdevs.ddbestiary.view.activity.DetailedMonsterActivity
@@ -16,6 +19,8 @@ class BasicCardDisplayItem : AppCompatActivity() {
 
         binding = BasicCardDisplayItemBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+
     }
 
     fun cardClick(view: View){

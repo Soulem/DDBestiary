@@ -1,15 +1,16 @@
 package com.dynamicdevs.ddbestiary.view.activity
 
 import android.annotation.SuppressLint
+import android.graphics.drawable.Drawable
 import android.os.Bundle
-import android.os.Parcel
 import android.text.method.ScrollingMovementMethod
-import android.util.Log
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
+import com.bumptech.glide.request.target.Target
+import com.dynamicdevs.ddbestiary.R
 import com.dynamicdevs.ddbestiary.databinding.ActivityDetailedMonsterBinding
 import com.dynamicdevs.ddbestiary.model.data.dd.monster.*
-import com.dynamicdevs.ddbestiary.util.Constants.Companion.NAME_KEY
 import com.dynamicdevs.ddbestiary.viewmodel.ObjectViewModel
 import java.util.*
 
@@ -25,6 +26,12 @@ class DetailedMonsterActivity : AppCompatActivity()  {
 
         binding = ActivityDetailedMonsterBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        Glide.with(binding.root)
+            .applyDefaultRequestOptions(RequestOptions.centerCropTransform())
+            .load(R.drawable.paper_texture)
+            .into(binding.backgroundDetailedIv)
+
 
         viewModel = ObjectViewModel.instance
 

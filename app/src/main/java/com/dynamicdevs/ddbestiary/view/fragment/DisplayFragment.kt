@@ -5,6 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
+import com.dynamicdevs.ddbestiary.R
 import com.dynamicdevs.ddbestiary.adapter.DisplayRecyclerViewAdapter
 import com.dynamicdevs.ddbestiary.databinding.FragmentDisplayBinding
 import com.dynamicdevs.ddbestiary.model.data.dd.monster.DDMonstersResult
@@ -22,7 +25,9 @@ class DisplayFragment : Fragment(), MainActivity.DisplayFragmentRecyclerInterfac
     ): View? {
         binding = FragmentDisplayBinding.inflate(layoutInflater)
         return binding.root
+
     }
+
 
     private val adapter = DisplayRecyclerViewAdapter()
 

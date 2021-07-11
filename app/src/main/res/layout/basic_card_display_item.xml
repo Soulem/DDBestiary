@@ -31,6 +31,7 @@
             android:layout_margin="32dp"
             android:fontFamily="@font/kaushan_script_regular"
             android:text="@string/monster_name"
+            android:textColor="@color/main_purple_dark"
             android:textSize="32sp"
             android:textStyle="bold"
             android:gravity="center"

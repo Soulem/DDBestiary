@@ -15,6 +15,16 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
 
+    <ImageView
+        android:id="@+id/favorites_imageView"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        app:layout_constraintEnd_toStartOf="@id/monster_subtype_textView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/charisma_textView"
+        app:layout_constraintBottom_toTopOf="@id/languages_textView"
+        app:srcCompat="@drawable/svg_not_favorite" />
+
     <TextView
         android:id="@+id/monster_name_textView"
         android:layout_width="wrap_content"
@@ -40,8 +50,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
+        android:layout_marginTop="8dp"
         android:text="@string/monster_subtype"
         app:layout_constraintEnd_toEndOf="@+id/monster_imageView"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="@+id/monster_imageView"
         app:layout_constraintTop_toBottomOf="@+id/monster_type_textView" />
 

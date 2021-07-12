@@ -2,20 +2,16 @@ package com.dynamicdevs.ddbestiary.view.activity
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.os.Parcel
 import android.text.method.ScrollingMovementMethod
-import android.util.Log
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import com.dynamicdevs.ddbestiary.R
 import com.dynamicdevs.ddbestiary.databinding.ActivityDetailedMonsterBinding
 import com.dynamicdevs.ddbestiary.model.data.dd.monster.*
-import com.dynamicdevs.ddbestiary.util.Constants.Companion.NAME_KEY
 import com.dynamicdevs.ddbestiary.viewmodel.ObjectViewModel
 import java.util.*
 
 class DetailedMonsterActivity : AppCompatActivity()  {
     private lateinit var binding: ActivityDetailedMonsterBinding
-    private lateinit var result: DDMonsterResult
     private lateinit var viewModel : ObjectViewModel
 
 
@@ -65,74 +61,101 @@ class DetailedMonsterActivity : AppCompatActivity()  {
 
         //Log.d("TAG_X", "monster gotten from search is $monster")
 
-//            Glide.with(this)
-//                .applyDefaultRequestOptions(RequestOptions.centerCropTransform())
-//                .load(result.url)
-//                .into(binding.monsterImageView)
 
-            binding.monsterNameTextView.text = "Name: ${monster.name?:""}"
-            binding.monsterTypeTextView.text = "Type: ${monster.type?:""}"
-            binding.monsterSubtypeTextView.text = "Subtype: ${monster.subtype?:""}"
-            binding.monsterXpTextView.text = "XP: ${monster.xp?:""}"
+        binding.monsterNameTextView.text = "Name: ${monster.name?:""}"
+        binding.monsterTypeTextView.text = "Type: ${monster.type?:""}"
+        binding.monsterSubtypeTextView.text = "Subtype: ${monster.subtype?:""}"
+        binding.monsterXpTextView.text = "XP: ${monster.xp?:""}"
 
-            binding.strengthTextView.text = "STR: ${monster.strength?:""}"
-            binding.dexterityTextView.text = "DEX: ${monster.dexterity?:""}"
-            binding.constitutionTextView.text = "CON: ${monster.constitution?:""}"
-            binding.intelligenceTextView.text = "INT: ${monster.intelligence?:""}"
-            binding.wisdomTextView.text = "WIS: ${monster.wisdom?:""}"
-            binding.charismaTextView.text = "CHA: ${monster.charisma?:""}"
+        binding.strengthTextView.text = "STR: ${monster.strength?:""}"
+        binding.dexterityTextView.text = "DEX: ${monster.dexterity?:""}"
+        binding.constitutionTextView.text = "CON: ${monster.constitution?:""}"
+        binding.intelligenceTextView.text = "INT: ${monster.intelligence?:""}"
+        binding.wisdomTextView.text = "WIS: ${monster.wisdom?:""}"
+        binding.charismaTextView.text = "CHA: ${monster.charisma?:""}"
 
-            binding.monsterChallengeRatingTextView.text = "Challenge Rating: ${monster.challenge_rating?:""}"
-            binding.monsterAcTextView.text = "AC: ${monster.armor_class?:""}"
-            binding.monsterHpTextView.text = "HP: ${monster.hit_points?:""}"
-            binding.monsterHitdiceTextView.text = "Hit Dice: ${monster.hit_dice?:""}"
-            binding.monsterAlignmentTextView.text = "Alignment: ${monster.alignment?:""}"
-            binding.monsterSizetTextView.text = "Size: ${monster.size?:""}"
+        binding.monsterChallengeRatingTextView.text = "Challenge Rating: ${monster.challenge_rating?:""}"
+        binding.monsterAcTextView.text = "AC: ${monster.armor_class?:""}"
+        binding.monsterHpTextView.text = "HP: ${monster.hit_points?:""}"
+        binding.monsterHitdiceTextView.text = "Hit Dice: ${monster.hit_dice?:""}"
+        binding.monsterAlignmentTextView.text = "Alignment: ${monster.alignment?:""}"
+        binding.monsterSizetTextView.text = "Size: ${monster.size?:""}"
 
-            binding.languageResultsTextVeiw.text = monster.languages?:""
-            binding.languageResultsTextVeiw.movementMethod = ScrollingMovementMethod()
-            binding.senseResultsTextVeiw.text = monster.senses.toString()?:""
-            binding.senseResultsTextVeiw.movementMethod = ScrollingMovementMethod()
+        binding.languageResultsTextVeiw.text = monster.languages?:""
+        binding.languageResultsTextVeiw.movementMethod = ScrollingMovementMethod()
+        binding.senseResultsTextVeiw.text = monster.senses.toString()?:""
+        binding.senseResultsTextVeiw.movementMethod = ScrollingMovementMethod()
 
-            val abilitiesStringBuilder = StringBuilder()
-            monster.special_abilities.forEach {
-                abilitiesStringBuilder.append(it.toString()?:"").append("\n")
+        val abilitiesStringBuilder = StringBuilder()
+        monster.special_abilities.forEach {
+            abilitiesStringBuilder.append(it.toString()?:"").append("\n")
+        }
+        binding.abilitiesResultsTextView.text = abilitiesStringBuilder.toString()?:""
+        binding.abilitiesResultsTextView.movementMethod = ScrollingMovementMethod()
+
+        val proficienciesStringBuilder = StringBuilder()
+        monster.proficiencies.forEach {
+            proficienciesStringBuilder.append(it.toString()?:"").append("\n")
+        }
+        binding.proficienciesResultsTextView.text = proficienciesStringBuilder.toString()?:""
+        binding.proficienciesResultsTextView.movementMethod = ScrollingMovementMethod()
+
+        val actionsStringBuilder = StringBuilder()
+        monster.actions.forEach {
+            actionsStringBuilder.append(it.toString()?:"").append("\n")
+        }
+        /*monster.legendary_actions.forEach {
+               actionsStringBuilder.append(it.toString()).append("\n")
+            */
+        binding.actionsResultsTextView.text = actionsStringBuilder.toString()?:""
+        binding.actionsResultsTextView.movementMethod = ScrollingMovementMethod()
+
+        val conditionsStringBuilder = StringBuilder()
+        monster.condition_immunities.forEach {
+            conditionsStringBuilder.append(it.toString()?:"").append("\n")
+        }
+        monster.damage_immunities.forEach {
+            conditionsStringBuilder.append(it.toString()?:"").append("\n")
+        }
+        monster.damage_resistances.forEach {
+            conditionsStringBuilder.append(it.toString()?:"").append("\n")
+        }
+        monster.damage_vulnerabilities.forEach {
+            conditionsStringBuilder.append(it.toString()?:"").append("\n")
+        }
+        binding.conditionDamageResultsTextView.text = conditionsStringBuilder.toString()?:""
+        binding.conditionDamageResultsTextView.movementMethod = ScrollingMovementMethod()
+
+        binding.favoritesImageView.setImageResource(if(monster.favorite){R.drawable.svg_favorite}else{R.drawable.svg_not_favorite})
+        binding.favoritesImageView.setOnClickListener{
+            monster.favorite = !monster.favorite
+            val monsterModel = DDMonsterModel(
+                monster.name,
+                monster.alignment,
+                monster.armor_class,
+                monster.challenge_rating,
+                monster.charisma,
+                monster.constitution,
+                monster.dexterity,
+                monster.hit_dice,
+                monster.index,
+                monster.intelligence,
+                monster.size,
+                monster.strength,
+                monster.type,
+                monster.wisdom,
+                monster.xp,
+                monster.favorite
+            )
+            if(monster.favorite) {
+                viewModel.insertMonster(monsterModel)
+                binding.favoritesImageView.setImageResource(R.drawable.svg_favorite)
+
+            }else{
+                viewModel.removeMonster(monsterModel)
+                binding.favoritesImageView.setImageResource(R.drawable.svg_not_favorite)
             }
-            binding.abilitiesResultsTextView.text = abilitiesStringBuilder.toString()?:""
-            binding.abilitiesResultsTextView.movementMethod = ScrollingMovementMethod()
-
-            val proficienciesStringBuilder = StringBuilder()
-            monster.proficiencies.forEach {
-                proficienciesStringBuilder.append(it.toString()?:"").append("\n")
-            }
-            binding.proficienciesResultsTextView.text = proficienciesStringBuilder.toString()?:""
-            binding.proficienciesResultsTextView.movementMethod = ScrollingMovementMethod()
-
-            val actionsStringBuilder = StringBuilder()
-            monster.actions.forEach {
-                actionsStringBuilder.append(it.toString()?:"").append("\n")
-            }
-            /*monster.legendary_actions.forEach {
-                actionsStringBuilder.append(it.toString()).append("\n")
-            }*/
-            binding.actionsResultsTextView.text = actionsStringBuilder.toString()?:""
-            binding.actionsResultsTextView.movementMethod = ScrollingMovementMethod()
-
-            val conditionsStringBuilder = StringBuilder()
-            monster.condition_immunities.forEach {
-                conditionsStringBuilder.append(it.toString()?:"").append("\n")
-            }
-            monster.damage_immunities.forEach {
-                conditionsStringBuilder.append(it.toString()?:"").append("\n")
-            }
-            monster.damage_resistances.forEach {
-                conditionsStringBuilder.append(it.toString()?:"").append("\n")
-            }
-            monster.damage_vulnerabilities.forEach {
-                conditionsStringBuilder.append(it.toString()?:"").append("\n")
-            }
-            binding.conditionDamageResultsTextView.text = conditionsStringBuilder.toString()?:""
-            binding.conditionDamageResultsTextView.movementMethod = ScrollingMovementMethod()
+        }
 
     }
 }

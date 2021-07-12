@@ -7,9 +7,12 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "Monsters")
 data class DDMonsterModel (
-    @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = "ddMonsterID")
-    val ddMonsterID: Int,
+    //@PrimaryKey(autoGenerate = true)
+    //@ColumnInfo(name = "ddMonsterID")
+    //val ddMonsterID: Int,
+    @PrimaryKey()
+    @ColumnInfo(name = "name")
+    val name: String,
     @ColumnInfo(name = "alignment")
     val alignment: String,
     @ColumnInfo(name = "armor_class")
@@ -28,14 +31,10 @@ data class DDMonsterModel (
     val index: String,
     @ColumnInfo(name = "intelligence")
     val intelligence: Int,
-    @ColumnInfo(name = "name")
-    val name: String,
     @ColumnInfo(name = "size")
     val size: String,
     @ColumnInfo(name = "strength")
     val strength: Int,
-    @ColumnInfo(name = "subtype")
-    val subtype: String,
     @ColumnInfo(name = "type")
     val type: String,
     @ColumnInfo(name = "wisdom")
@@ -44,15 +43,4 @@ data class DDMonsterModel (
     val xp: Int,
     @ColumnInfo(name="favorite")
     val favorite:Boolean
-    ){
-    @Ignore
-    constructor(alignment: String, armor_class: Int, challenge_rating: Int,
-                charisma: Int, constitution: Int, dexterity: Int,
-                hit_dice: String, index: String, intelligence: Int,
-                name: String, size: String, strength: Int, subtype: String,
-                type: String, wisdom: Int, xp: Int):
-            this(0, alignment, armor_class, challenge_rating,
-                charisma, constitution, dexterity, hit_dice, index,
-                intelligence, name, size, strength, subtype, type,
-                wisdom, xp, false)
-}
+    )

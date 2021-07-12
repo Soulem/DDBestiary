@@ -10,8 +10,8 @@ class Constants {
         const val MONSTER_END_POINT = "monsters/{$MONSTER_PATH}"
         const val MONSTERS_END_POINT = "monsters/"
         const val NAME_KEY = "monster_name_key"
-        const val MONSTER_KEY = "monster_key"
-        const val MONSTER_BUNDLE_KEY = "monster_bundle_key"
+        const val MONSTER_DATABASE_NAME = "Monsters"
         const val DATA_NOT_FOUND = "Data not found."
+
     }
 }

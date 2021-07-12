@@ -2,7 +2,6 @@ package com.dynamicdevs.ddbestiary.viewmodel
 
 import android.content.Context
 import android.util.Log
-import androidx.activity.viewModels
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.room.*
@@ -18,23 +17,13 @@ class ObjectViewModel(): ViewModel() {
     companion object {
         val instance  = ObjectViewModel()
     }
+
     // for a single monster look up
     val monsterLiveData = MutableLiveData<DDMonsterResult>()
     // for a list of monsters
     val monstersLiveData = MutableLiveData<DDMonstersResult>()
-    // for the database.  we will insert a single monster
-    private lateinit var monsterDatabase: DDMonsterDatabase
 
     private val ddMonsterRetrofit = DD5ERetrofit(Constants.BASE_URL);
-
-    fun setDatabase(context : Context) {
-        monsterDatabase = Room.databaseBuilder(
-            context,
-            DDMonsterDatabase::class.java,
-            "monster.db"
-        ).allowMainThreadQueries()
-            .build()
-    }
 
     fun searchForMonster(monsterName: String){
         if (monsterName == "")
@@ -81,16 +70,32 @@ class ObjectViewModel(): ViewModel() {
     }
 
     fun insertMonster(monster: DDMonsterModel){
-        monsterDatabase.getMonsterDAO().insertNewMonster(monster)
-        readFromDB()
+        Thread {
+            fun run() {
+                try {
+                    DDMonsterDatabase.getDao().insertNewMonster(monster)
+                    readFromDB()
+                }catch(e: Exception){
+                    Log.d("TAG_DATABASE_EXCEPTION", e.message?:"")
+                }
+            }
+        }.start()
     }
 
     fun removeMonster(monster: DDMonsterModel){
-        monsterDatabase.getMonsterDAO().deleteMonster(monster)
-        readFromDB()
+        Thread{
+            fun run() {
+                try {
+                    DDMonsterDatabase.getDao().deleteMonster(monster)
+                    readFromDB()
+                }catch(e : Exception){
+                    Log.d("TAG_DATABASE_EXCEPTION", e.message?:"")
+                }
+            }
+        }.start()
     }
 
-    fun readFromDB(): List<DDMonsterModel>{
-        return monsterDatabase.getMonsterDAO().getAllMonsters()
+    private fun readFromDB(): List<DDMonsterModel>{
+        return DDMonsterDatabase.getDao().getAllMonsters()
     }
 }

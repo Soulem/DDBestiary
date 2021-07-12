@@ -74,7 +74,7 @@ data class DDMonsterResult (
     //@ColumnInfo(name = "xp")
     val xp: Int,
     //@ColumnInfo(name = "favorite")
-    val favorite: Boolean
+    var favorite: Boolean = false
 ): Result, Parcelable {
     private companion object : Parceler<DDMonsterResult> {
         override fun DDMonsterResult.write(parcel: Parcel, flags: Int) {

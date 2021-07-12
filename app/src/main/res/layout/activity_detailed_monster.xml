@@ -12,6 +12,16 @@
         android:layout_height="match_parent"
         android:elevation="-1dp"/>
 
+    <ImageView
+        android:id="@+id/favorites_imageView"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintEnd_toStartOf="@id/monster_subtype_textView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/charisma_textView"
+        app:layout_constraintBottom_toTopOf="@id/languages_textView"
+        app:srcCompat="@drawable/svg_not_favorite" />
 
     <TextView
         android:id="@+id/monster_name_textView"

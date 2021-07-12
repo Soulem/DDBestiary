@@ -11,15 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:elevation="-1dp"/>
-    <ImageView
-        android:id="@+id/monster_imageView"
-        android:layout_width="135dp"
-        android:layout_height="135dp"
-        android:layout_margin="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+
 
     <TextView
         android:id="@+id/monster_name_textView"
@@ -30,9 +22,9 @@
         android:textStyle="bold"
         android:textColor="@color/main_purple_dark"
         android:text="@string/monster_name"
-        app:layout_constraintEnd_toEndOf="@+id/monster_imageView"
-        app:layout_constraintStart_toStartOf="@+id/monster_imageView"
-        app:layout_constraintTop_toBottomOf="@+id/monster_imageView" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/intelligence_textView" />
 
     <TextView
         android:id="@+id/monster_type_textView"
@@ -43,8 +35,8 @@
         android:fontFamily="@font/bad_script_regular"
         android:textStyle="bold"
         android:layout_margin="8dp"
-        app:layout_constraintEnd_toEndOf="@+id/monster_imageView"
-        app:layout_constraintStart_toStartOf="@+id/monster_imageView"
+        app:layout_constraintEnd_toEndOf="@id/monster_name_textView"
+        app:layout_constraintStart_toStartOf="@+id/monster_name_textView"
         app:layout_constraintTop_toBottomOf="@+id/monster_name_textView" />
 
     <TextView
@@ -56,8 +48,8 @@
         android:textColor="@color/main_purple_dark"
         android:fontFamily="@font/bad_script_regular"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/monster_imageView"
-        app:layout_constraintStart_toStartOf="@+id/monster_imageView"
+        app:layout_constraintEnd_toEndOf="@+id/monster_type_textView"
+        app:layout_constraintStart_toStartOf="@+id/monster_type_textView"
         app:layout_constraintTop_toBottomOf="@+id/monster_type_textView" />
 
     <TextView
@@ -69,8 +61,8 @@
         android:textColor="@color/main_purple_dark"
         android:fontFamily="@font/bad_script_regular"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@id/monster_imageView"
-        app:layout_constraintStart_toStartOf="@id/monster_imageView"
+        app:layout_constraintEnd_toEndOf="@id/monster_subtype_textView"
+        app:layout_constraintStart_toStartOf="@id/monster_subtype_textView"
         app:layout_constraintTop_toBottomOf="@id/monster_subtype_textView" />
 
     <TextView

@@ -72,10 +72,6 @@ class DetailedMonsterActivity : AppCompatActivity()  {
 
         //Log.d("TAG_X", "monster gotten from search is $monster")
 
-//            Glide.with(this)
-//                .applyDefaultRequestOptions(RequestOptions.centerCropTransform())
-//                .load(result.url)
-//                .into(binding.monsterImageView)
 
             binding.monsterNameTextView.text = "Name: ${monster.name?:""}"
             binding.monsterTypeTextView.text = "Type: ${monster.type?:""}"

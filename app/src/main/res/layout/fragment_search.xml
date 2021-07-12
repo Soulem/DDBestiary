@@ -17,6 +17,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:hint="@string/monster_name_button"
+        android:background="#11444444"
         android:textColor="@color/main_purple_light"
         android:fontFamily="@font/bad_script_regular"
         android:inputType="textPersonName"
